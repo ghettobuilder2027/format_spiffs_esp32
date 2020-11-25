@@ -46,6 +46,11 @@ void listAllFiles(){
       i++;
       Serial.print("FILE: ");
       Serial.println(file.name());
+      Serial.println("/// Content ///\n--------------");
+      while(file.available()){
+        Serial.write(file.read());
+      }
+      Serial.println("\n-------------------");
       file = root.openNextFile();
   }
   if (i==0) {
