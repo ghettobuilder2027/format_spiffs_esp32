@@ -53,6 +53,15 @@ void listAllFiles(){
       Serial.println("\n-------------------");
       file = root.openNextFile();
   }
+  i=0;
+  root = SPIFFS.open("/");
+  file = root.openNextFile();
+  while(file){
+   i++;
+   Serial.print("FILE: ");
+   Serial.println(file.name());
+   file = root.openNextFile();
+  }
   if (i==0) {
     Serial.println("THe Spliff is empty");
   }
